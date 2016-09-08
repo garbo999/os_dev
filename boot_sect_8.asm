@@ -6,6 +6,7 @@
   mov dx, 0x1fb6 ; number to print
   mov dx, 0xbcde ; number to print
   mov dx, 0x3b9f ; number to print
+  mov dx, 0xe9ac ; number to print
   call print_hex  
 
   jmp $
