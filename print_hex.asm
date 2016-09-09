@@ -17,12 +17,12 @@ print_hex:
     jl less_than_ten
 
     ; else al >= 10 = letter between A and F
-    add al, 0x40
-    sub al, 9
+    add al, 0x40    ; convert to ascii letter
+    sub al, 9       ; 0x0A --> ascii 0x41, etc.
     jmp done
 
     less_than_ten:
-      add al, 0x30
+      add al, 0x30  ; convert to ascii number, 0x00 --> ascii 0x30, etc.
       jmp done
 
     done:
