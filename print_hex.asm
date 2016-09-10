@@ -1,5 +1,5 @@
 ; DX = 16-bit string to print
-; HEX_OUT = label of memory location where ascii will be stored
+; HEX_OUT = label of 6-byte memory location where ascii will be stored
 
 print_hex:
   pusha
