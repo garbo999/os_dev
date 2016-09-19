@@ -1,0 +1,54 @@
+00000000  55                push ebp
+00000001  89E5              mov ebp,esp
+00000003  8B4508            mov eax,[ebp+0x8]
+00000006  5D                pop ebp
+00000007  C3                ret
+00000008  55                push ebp
+00000009  89E5              mov ebp,esp
+0000000B  83EC14            sub esp,byte +0x14
+0000000E  C704241F000000    mov dword [esp],0x1f
+00000015  E8E6FFFFFF        call dword 0x0
+0000001A  8945FC            mov [ebp-0x4],eax
+0000001D  C9                leave
+0000001E  C3                ret
+0000001F  68656C6C6F        push dword 0x6f6c6c65
+00000024  0000              add [eax],al
+00000026  0000              add [eax],al
+00000028  1400              adc al,0x0
+0000002A  0000              add [eax],al
+0000002C  0000              add [eax],al
+0000002E  0000              add [eax],al
+00000030  017A52            add [edx+0x52],edi
+00000033  0001              add [ecx],al
+00000035  7C08              jl 0x3f
+00000037  011B              add [ebx],ebx
+00000039  0C04              or al,0x4
+0000003B  0488              add al,0x88
+0000003D  0100              add [eax],eax
+0000003F  001C00            add [eax+eax],bl
+00000042  0000              add [eax],al
+00000044  1C00              sbb al,0x0
+00000046  0000              add [eax],al
+00000048  B8FFFFFF08        mov eax,0x8ffffff
+0000004D  0000              add [eax],al
+0000004F  0000              add [eax],al
+00000051  41                inc ecx
+00000052  0E                push cs
+00000053  088502420D05      or [ebp+0x50d4202],al
+00000059  44                inc esp
+0000005A  C50C04            lds ecx,[esp+eax]
+0000005D  0400              add al,0x0
+0000005F  001C00            add [eax+eax],bl
+00000062  0000              add [eax],al
+00000064  3C00              cmp al,0x0
+00000066  0000              add [eax],al
+00000068  A0FFFFFF17        mov al,[0x17ffffff]
+0000006D  0000              add [eax],al
+0000006F  0000              add [eax],al
+00000071  41                inc ecx
+00000072  0E                push cs
+00000073  088502420D05      or [ebp+0x50d4202],al
+00000079  53                push ebx
+0000007A  C50C04            lds ecx,[esp+eax]
+0000007D  0400              add al,0x0
+0000007F  00                db 0x00
