@@ -1,0 +1,44 @@
+# Default make target
+all: os-image
+
+# Run bochs to simulate booting of our code
+run: all
+	bochs
+
+# Actual disk image that our computer loads,
+# i.e. a combination of compiled boot sector and kernel
+os-image: boot_sector.bin kernel.bin
+	cat $^ > os-image	
+
+# Build the kernel binary from two object files
+# - kernel_entry which jumps to main() in our kernel
+# - compiled C kernel
+# $^ is substituted with all of the target's dependency files
+kernel.bin: kernel_entry.o kernel.o
+	ld -o kernel.bin -Ttext 0x1000 $^ --oformat binary
+
+# Build the kernel object file
+# $< is the 1st dependency and $@ is the target file
+kernel.o: kernel.c
+	gcc -ffreestanding -c $< -o $@
+
+# Build the kernel entry object file
+kernel_entry.o: kernel_entry.asm
+	nasm $< -f elf -o $@
+
+# Assemble boot sector to raw machine code
+# -I options tell nasm where to find our included assembly routines
+boot_sector.bin: boot_sect_21.asm
+	# nasm $< -f bin -I ’../../16 bit/’ -o $@
+	nasm $< -f bin -o $@	
+
+clean:
+	rm -fr *.bin *.dis *.o os-image *.map
+
+# Disassemble kernel -- can be useful for debugging
+kernel.dis: kernel.bin
+	ndisasm -b 32 $< > $@
+
+
+
+

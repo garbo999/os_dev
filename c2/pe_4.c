@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
 
 void topntail(char *str) {
     size_t len = strlen(str);
@@ -21,23 +22,23 @@ bool palindrome(char *my_int_string) {
   // else peel off outer two characters:
   //    if EQUAL, recurse on inner
   //    else return FALSE
-  } else {
-    int len1 = strlen(my_int_string);
+  } 
+  int len1 = strlen(my_int_string);
 
-    if (my_int_string[0] == my_int_string[len1 - 1])  {
-      topntail(my_int_string);
-      palindrome(my_int_string);
-    } else {
-      return false;
-    }
-  }
+  if (my_int_string[0] == my_int_string[len1 - 1])  {
+    topntail(my_int_string);
+    return palindrome(my_int_string);
+  } 
+
+  return false;
+
 }
 
-int main(void) {
+int main(int argc, char *argv[]) {
 
   char my_str[50];
-  int min = 1000;
-  int max = 10000;
+  int min = 100;
+  int max = 1000;
   int i, j;
   int largest_num = 0;
 
@@ -54,5 +55,5 @@ int main(void) {
   }
 
   printf("Largest number = %d\n", largest_num);
-  return 0;
+  return EXIT_SUCCESS;
 }

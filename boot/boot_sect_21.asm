@@ -17,11 +17,11 @@ KERNEL_OFFSET equ 0x1000  ; memory offset for loading kernel
   jmp $
 
 ; Include our important routines
-%include "print/print_string.asm"
-%include "disk/disk_load.asm"
-%include "pm/gdt.asm"
-%include "pm/print_string_pm.asm"
-%include "pm/switch_to_pm.asm"
+%include "boot/print_string.asm"
+%include "boot/print_string_pm.asm"
+%include "boot/disk_load.asm"
+%include "boot/gdt.asm"
+%include "boot/switch_to_pm.asm"
 
 [bits 16]
 
@@ -50,7 +50,7 @@ BEGIN_PM:
 
 ; global variables
 BOOT_DRIVE db 0
-MSG_REAL_MODE db "Started in 16-bit real mode", 0
+MSG_REAL_MODE db "Started in 16-bit real mode", 0x0A, 0x0D, 0
 MSG_PROT_MODE db "Successfully landed in 32-bit protected mode", 0
 MSG_LOAD_KERNEL db "Loading kernel into memory", 0
 
