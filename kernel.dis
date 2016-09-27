@@ -1,0 +1,36 @@
+00000000  E803000000        call dword 0x8
+00000005  EBFE              jmp short 0x5
+00000007  90                nop
+00000008  55                push ebp
+00000009  89E5              mov ebp,esp
+0000000B  83EC10            sub esp,byte +0x10
+0000000E  C745FC00800B00    mov dword [ebp-0x4],0xb8000
+00000015  8B45FC            mov eax,[ebp-0x4]
+00000018  C60044            mov byte [eax],0x44
+0000001B  C9                leave
+0000001C  C3                ret
+0000001D  0000              add [eax],al
+0000001F  001400            add [eax+eax],dl
+00000022  0000              add [eax],al
+00000024  0000              add [eax],al
+00000026  0000              add [eax],al
+00000028  017A52            add [edx+0x52],edi
+0000002B  0001              add [ecx],al
+0000002D  7C08              jl 0x37
+0000002F  011B              add [ebx],ebx
+00000031  0C04              or al,0x4
+00000033  0488              add al,0x88
+00000035  0100              add [eax],eax
+00000037  001C00            add [eax+eax],bl
+0000003A  0000              add [eax],al
+0000003C  1C00              sbb al,0x0
+0000003E  0000              add [eax],al
+00000040  C8FFFFFF          enter 0xffff,0xff
+00000044  1500000000        adc eax,0x0
+00000049  41                inc ecx
+0000004A  0E                push cs
+0000004B  088502420D05      or [ebp+0x50d4202],al
+00000051  51                push ecx
+00000052  C50C04            lds ecx,[esp+eax]
+00000055  0400              add al,0x0
+00000057  00                db 0x00
