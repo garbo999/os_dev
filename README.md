@@ -10,5 +10,5 @@ NOTE: I got stuck again towards the end. Roll back a few commits if necessary.
 - Ubuntu 12.04 LTS inside of an Oracle VM
 - Bochs for testing
 
-[Link 1]: https://github.com/sunspot/sunspot/wiki/Advanced-Fulltext-Search-Configuration
+[Link 1]: https://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf 
 
