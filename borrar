@@ -1,0 +1,1 @@
+gcc -ffreestanding -c drivers/screen.c -o drivers/screen.o

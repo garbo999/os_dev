@@ -51,3 +51,7 @@ clean:
 # Disassemble kernel -- can be useful for debugging
 kernel.dis: kernel.bin
 	ndisasm -b 32 $< > $@
+
+# Print value of a variable:
+# make print-VARIABLE
+print-%  : ; @echo $* = $($*)
